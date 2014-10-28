@@ -1,0 +1,83 @@
+<?php
+ error_reporting(0);
+
+ if($_SERVER['REQUEST_METHOD'] == 'POST')
+ {
+    include('connection.php');
+	echo "<br />";
+	
+	$errors = array();
+	
+	if (empty($_POST['email']))
+	{
+		$errors[] = 'You forgot to enter your email!';
+	}
+	else
+	{
+		$e = mysqli_real_escape_string($dbc, trim($_POST['email']));
+	}	
+	
+	if (empty($_POST['password']))
+	{
+		$errors[] = 'You forgot to enter your current password!';
+	}
+	else
+	{
+		$p = mysqli_real_escape_string($dbc, trim($_POST['password']));
+	}
+	
+	if (!empty($_POST['new_skill']))
+	{
+		if ($_POST['new_skill'] != $_POST['new_skill_2'])
+		{
+			$errors[] = 'Your new skill level does not match the confirmed skill level!';
+		}
+		else
+		{
+			$np = mysqli_real_escape_string($dbc, trim($_POST['new_skill']));
+		}
+	}
+	else
+	{
+		$errors[] = 'You forgot to enter your new skill level!';
+	}
+
+	if(empty($errors))
+	{
+		$q = "SELECT id FROM user WHERE (email='$e' AND password='$p')";
+		$r = mysqli_query($dbc, $q);
+		$num = mysqli_num_rows($r); 
+		
+		if($num == 1)
+		{
+			$row = mysqli_fetch_array($r, MYSQLI_NUM);
+				
+			$q = "UPDATE user SET skill='$np' WHERE id='$row[0]'";
+			$r = mysqli_query($dbc, $q);
+			
+			if(mysqli_affected_rows($dbc) == 1)
+			{
+				echo "Thanks! You have updated your skill level!";
+				echo "<br /> <a href = 'loggedIn.html'> Control Panel </a> <br />";
+			}
+			else
+			{
+				echo "Your skill level could not be changed due to a system error";
+			}
+			mysqli_close($dbc);
+		}
+		else
+		{
+			echo "The email and password do not match our records!";
+		}
+	}
+	else
+	{
+		echo "Error! The following error(s) occurred: <br />";
+		foreach($errors as $msg)
+		{
+			echo $msg."<br />";
+		}
+	} 
+  }
+ ?>
