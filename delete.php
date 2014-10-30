@@ -33,12 +33,12 @@
 		}
 		else
 		{
-			echo 'User with that email does not exist in the database';
-			echo "<br /> <a href = 'deleteUser.html'> Try Again? </a> <br />";
+			echo 'User with that email does not exist in the database.';
+			echo "<br /> <a href = 'deleteUser.html'> Try again? </a> <br />";
 		}	
 	}
 	else
 	{
-		echo "failed to retrieve form data!";
+		echo "Failed to retrieve form data!";
 	}
 ?>

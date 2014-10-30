@@ -29,12 +29,12 @@
       	{
       		if($login_password==$dbpass)
       		{		
-      			echo "<h3><br /> Welcome ".$dbfirstname.", you are in Freelancer </h3>";	
+      			echo "<h3><br /> Welcome, ".$dbfirstname.", you are in Freelancer! </h3>";	
       			echo "<br /> <a href = 'loggedIn.html'> User Control Panel </a> <br />";
       		}
       		else
       		{
-      			echo "<br /> Please enter a vilid email address!";
+      			echo "<br /> Please enter a valid email address!";
       		}
       	}
       	else
@@ -45,13 +45,12 @@
       }
       else
       {
-       	echo "<br />Invalid credentials! If you are not registered, click the link...";
-      	echo "<a href = 'newUser.html'> Register? </a>";
+       	echo "<br />Invalid credentials! If you are not registered, click <a href = 'newUser.html'>here</a> to register.";
       }
   }
   else
   {
-  	echo "Please Login...";
+  	echo "Please log in.";
   }
 
 ?>
