@@ -3,6 +3,6 @@
   session_start();
   unset($_SESSION['sessionUser']);
   session_destroy();
-  echo "<h2> <font face='New Times Roman'> Logout Succesfull! </h2>";
-  echo "<br /><a href = 'index.html'> Log in again? </a>"
+  echo "<h2> <font face='New Times Roman'> Logout successfull! </h2>";
+  echo "<br /><a href = 'index.html'> Return to Index </a>"
 ?>

@@ -8,5 +8,5 @@
 		echo "<br>";
 	}
     mysqli_close($dbc);
-    echo "database connection closed.";
+    echo "Database connection closed.";
 ?>

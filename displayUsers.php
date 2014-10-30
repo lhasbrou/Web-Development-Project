@@ -18,7 +18,7 @@
     	$result = mysqli_query($dbc,"SELECT * FROM user");
     
     	echo "<table border='1'>";
-    	echo "<tr><th>Firstname</th><th>Lastname</th><th>Email</th><th>Phone</th></tr>";
+    	echo "<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th></tr>";
     	
 		while($row = mysqli_fetch_array($result))
     	{
