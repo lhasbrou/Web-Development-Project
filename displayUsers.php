@@ -1,6 +1,6 @@
 <html>	
 	
-	<a href = "displayUser.php"> Check All Database Records </a> |
+	<a href = "displayUsers.php"> Check All Database Records </a> |
 	<a href = "deleteUser.html"> Delete User from Database </a> |
 	<a href = "passwordUpdate.html"> Change Login Password of a User </a> | 
 	<a href = "updateSkill.html"> Change My Phone Number </a> | 
@@ -15,10 +15,10 @@
     	
     	echo "<h3> All registered users: </h3>";
     
-    	$result = mysqli_query($dbc,"SELECT * FROM user");
+    	$result = mysqli_query($dbc,"SELECT * FROM users");
     
     	echo "<table border='1'>";
-    	echo "<tr><th>Firstname</th><th>Lastname</th><th>Email</th><th>Phone</th></tr>";
+    	echo "<tr><th>Firstname</th><th>Lastname</th><th>Email</th><th>Phone</th><th>username</th></tr>";
     	
 		while($row = mysqli_fetch_array($result))
     	{
